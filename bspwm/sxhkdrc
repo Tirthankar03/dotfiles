@@ -1,4 +1,4 @@
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+## Copyright (C) 2021-2024 Aditya Shakya <adi1090x@gmail.com>
 ##
 ## Keybindings config for Archcraft's BSPWM
 
@@ -124,6 +124,10 @@ super + {_,shift + }{1-8}
 super + ctrl + shift + {Left,Right}
 	bspc node -d {prev,next} '--follow'
 
+# Send focused window to next/previous monitor
+super +  ctrl + Return 
+    bspc node -m prev --follow
+
 # Change focus of the Node or Swap Nodes
 super + {_,shift + }{j,k,i,l}
 	bspc node -{f,s} {west,south,north,east}
@@ -144,9 +148,13 @@ super + alt + {j,l,k,i}
 super + {h,v,q}
 	bspc node -p {east,south,cancel}
 
-# Preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+# Focus the given desktop on the other monitor
+super + ctrl + {1-8}
+    bspc desktop -f '{9,10,11,12,13,14,15,16}'
+
+# Send to the given desktop on the other monitor
+super + ctrl + shift + {1-8}
+    bspc node -d '{9,10,11,12,13,14,15,16}'
 
 # Toggle Layout (Tiled/Monocle)
 super + shift + m

@@ -20,13 +20,13 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 ## Current theme ---------------------------------------------#
 
 ## Bspwm colors
-BSPWM_FBC='#B4A1DB'
-BSPWM_NBC='#282f37'
-BSPWM_ABC='#b4a1db'
-BSPWM_PFC='#74dd91'
+BSPWM_FBC='#81A1C1'
+BSPWM_NBC='#2E3440'
+BSPWM_ABC='#B48EAD'
+BSPWM_PFC='#A3BE8C'
 
 ## Bspwm appearance
-BSPWM_BORDER='2'
+BSPWM_BORDER='1'
 BSPWM_GAP='10'
 BSPWM_SRATIO='0.50'
 
@@ -50,8 +50,8 @@ two_monitors_workspaces() {
   INTERNAL_MONITOR="eDP"
   EXTERNAL_MONITOR="HDMI-A-0"
   if [[ $(xrandr -q | grep "${EXTERNAL_MONITOR} connected") ]]; then
-    bspc monitor "$EXTERNAL_MONITOR" -d '' ' ' ' ' '' '' ' ' '' ''
-    bspc monitor "$INTERNAL_MONITOR" -d '' ' ' ' ' '' '' ' ' '' ''
+    bspc monitor "$EXTERNAL_MONITOR" -d '1' '2 ' '3 ' '4' '5' '6 ' '7' '8'
+    bspc monitor "$INTERNAL_MONITOR" -d '9' '10 ' '11 ' '12' '13' '14 ' '15' '16'
     bspc wm -O "$EXTERNAL_MONITOR" "$INTERNAL_MONITOR"
   else
     bspc monitor "$INTERNAL_MONITOR" -d '' ' ' ' ' '' '' ' ' '' ''
@@ -83,8 +83,8 @@ three_monitors_workspaces() {
 # }
 
 ## Uncomment only one function according to your needs
-default_workspaces
-#two_monitors_workspaces
+# default_workspaces
+two_monitors_workspaces
 #three_monitors_workspaces
 
 ## Apply bspwm configurations
